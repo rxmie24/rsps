@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{77BBD086-EB1C-4CB4-9283-C78722F093AF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RS2.Server</RootNamespace>
+    <AssemblyName>RS2Server</AssemblyName>
+    <StartupObject>RS2.Server.Server</StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="clans\Clan.cs" />
+    <Compile Include="clans\ClanManager.cs" />
+    <Compile Include="clans\ClanUser.cs" />
+    <Compile Include="combat\MagicCombat.cs" />
+    <Compile Include="combat\NPCAttack.cs" />
+    <Compile Include="combat\RangeCombat.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="definitions\Animations.cs" />
+    <Compile Include="definitions\areas\AlKharid.cs" />
+    <Compile Include="definitions\areas\BoatOptions.cs" />
+    <Compile Include="definitions\areas\HomeArea.cs" />
+    <Compile Include="definitions\areas\TzHaar.cs" />
+    <Compile Include="definitions\areas\Wilderness.cs" />
+    <Compile Include="definitions\areas\WildernessObelisks.cs" />
+    <Compile Include="definitions\LaddersAndStairs.cs" />
+    <Compile Include="definitions\ObjectData.cs" />
+    <Compile Include="events\AggressiveNpcEvent.cs" />
+    <Compile Include="events\LowerPotionCyclesEvent.cs" />
+    <Compile Include="events\SkullCycleEvent.cs" />
+    <Compile Include="events\LevelChangeEvent.cs" />
+    <Compile Include="events\RunEnergyEvent.cs" />
+    <Compile Include="events\SpecialRestoreEvent.cs" />
+    <Compile Include="grandexchange\GEDictionaryWrapper.cs" />
+    <Compile Include="model\EntityList.cs" />
+    <Compile Include="model\EntityListEnumerator.cs" />
+    <Compile Include="packethandler\commands\AboveGround.cs" />
+    <Compile Include="packethandler\commands\Animation.cs" />
+    <Compile Include="packethandler\commands\Bank.cs" />
+    <Compile Include="packethandler\commands\CharacterAppearance.cs" />
+    <Compile Include="packethandler\commands\ClientSideObjectDump.cs" />
+    <Compile Include="packethandler\commands\Command.cs" />
+    <Compile Include="packethandler\commands\CommandManager.cs" />
+    <Compile Include="packethandler\commands\Config.cs" />
+    <Compile Include="packethandler\commands\Coordinates.cs" />
+    <Compile Include="packethandler\commands\EmptyInventory.cs" />
+    <Compile Include="packethandler\commands\Graphic.cs" />
+    <Compile Include="packethandler\commands\Height.cs" />
+    <Compile Include="packethandler\commands\Info.cs" />
+    <Compile Include="packethandler\commands\Interface.cs" />
+    <Compile Include="packethandler\commands\InventoryValue.cs" />
+    <Compile Include="packethandler\commands\Kick.cs" />
+    <Compile Include="packethandler\commands\KickAll.cs" />
+    <Compile Include="packethandler\commands\Master.cs" />
+    <Compile Include="packethandler\commands\MaxHit.cs" />
+    <Compile Include="packethandler\commands\OpenShop.cs" />
+    <Compile Include="packethandler\commands\Pickup.cs" />
+    <Compile Include="packethandler\commands\PlayerAsNpc.cs" />
+    <Compile Include="packethandler\commands\Players.cs" />
+    <Compile Include="packethandler\commands\ReloadLadderXml.cs" />
+    <Compile Include="packethandler\commands\RestoreSpecialAttack.cs" />
+    <Compile Include="packethandler\commands\SetLevel.cs" />
+    <Compile Include="packethandler\commands\SpawnNpc.cs" />
+    <Compile Include="packethandler\commands\SpawnObject.cs" />
+    <Compile Include="packethandler\commands\SwitchMagic.cs" />
+    <Compile Include="packethandler\commands\SystemUpdate.cs" />
+    <Compile Include="packethandler\commands\Teleport.cs" />
+    <Compile Include="packethandler\commands\Test.cs" />
+    <Compile Include="packethandler\commands\TestDamage.cs" />
+    <Compile Include="packethandler\commands\TestStillGraphics.cs" />
+    <Compile Include="packethandler\commands\UnderGround.cs" />
+    <Compile Include="packethandler\commands\Uptime.cs" />
+    <Compile Include="packethandler\commands\Yell.cs" />
+    <Compile Include="player\ConfigureAppearance.cs" />
+    <Compile Include="definitions\Dialogue.cs" />
+    <Compile Include="definitions\Door.cs" />
+    <Compile Include="definitions\Emotes.cs" />
+    <Compile Include="definitions\JewelleryTeleport.cs" />
+    <Compile Include="definitions\NpcSpawn.cs" />
+    <Compile Include="definitions\ProtectedItems.cs" />
+    <Compile Include="definitions\Shop.cs" />
+    <Compile Include="definitions\ShopManager.cs" />
+    <Compile Include="definitions\Skillcape.cs" />
+    <Compile Include="definitions\SkillMenu.cs" />
+    <Compile Include="events\DeathEvent.cs" />
+    <Compile Include="events\SystemUpdateEvent.cs" />
+    <Compile Include="grandexchange\BuyOffer.cs" />
+    <Compile Include="grandexchange\GEItem.cs" />
+    <Compile Include="grandexchange\GrandExchange.cs" />
+    <Compile Include="grandexchange\SellOffer.cs" />
+    <Compile Include="minigames\barrows\BrokenBarrows.cs" />
+    <Compile Include="minigames\fightpits\FightPits.cs" />
+    <Compile Include="minigames\godwars\GodwarsAttacks.cs" />
+    <Compile Include="minigames\warriorguild\WarriorGuild.cs" />
+    <Compile Include="minigames\warriorguild\WarriorGuildData.cs" />
+    <Compile Include="model\EnterVariable.cs" />
+    <Compile Include="model\ShopSession.cs" />
+    <Compile Include="player\GESession.cs" />
+    <Compile Include="player\skills\agility\Agility.cs" />
+    <Compile Include="player\skills\agility\AgilityData.cs" />
+    <Compile Include="definitions\AttackInterface.cs" />
+    <Compile Include="combat\CombatFormula.cs" />
+    <Compile Include="minigames\barrows\BarrowsData.cs" />
+    <Compile Include="definitions\Consumables.cs" />
+    <Compile Include="definitions\DoorControl.cs" />
+    <Compile Include="player\skills\agility\ApeAtollCourse.cs" />
+    <Compile Include="player\skills\agility\BarbarianCourse.cs" />
+    <Compile Include="player\skills\agility\GnomeCourse.cs" />
+    <Compile Include="minigames\agilityarena\Obstacles.cs" />
+    <Compile Include="player\skills\agility\WildernessCourse.cs" />
+    <Compile Include="player\skills\cooking\Cooking.cs" />
+    <Compile Include="player\skills\cooking\CookingData.cs" />
+    <Compile Include="player\skills\crafting\Clay.cs" />
+    <Compile Include="player\skills\crafting\Crafting.cs" />
+    <Compile Include="player\skills\crafting\CraftingData.cs" />
+    <Compile Include="player\skills\crafting\CraftItem.cs" />
+    <Compile Include="player\skills\crafting\Glass.cs" />
+    <Compile Include="player\skills\crafting\Jewellery.cs" />
+    <Compile Include="player\skills\crafting\Leather.cs" />
+    <Compile Include="player\skills\crafting\Silver.cs" />
+    <Compile Include="player\skills\crafting\Spinning.cs" />
+    <Compile Include="player\skills\farming\FarmingAmulet.cs" />
+    <Compile Include="player\skills\farming\FarmingData.cs" />
+    <Compile Include="player\skills\farming\FarmingPatches.cs" />
+    <Compile Include="player\skills\firemaking\Firemaking.cs" />
+    <Compile Include="player\skills\firemaking\FiremakingData.cs" />
+    <Compile Include="player\skills\fishing\Fishing.cs" />
+    <Compile Include="player\skills\fishing\FishingData.cs" />
+    <Compile Include="player\skills\fishing\Spot.cs" />
+    <Compile Include="player\skills\fletching\Ammo.cs" />
+    <Compile Include="player\skills\fletching\Bow.cs" />
+    <Compile Include="player\skills\fletching\FletchingData.cs" />
+    <Compile Include="definitions\GroundItemManager.cs" />
+    <Compile Include="definitions\ItemData.cs" />
+    <Compile Include="player\skills\magic\Lunar.cs" />
+    <Compile Include="player\skills\magic\MagicData.cs" />
+    <Compile Include="definitions\MapData.cs" />
+    <Compile Include="definitions\NpcData.cs" />
+    <Compile Include="definitions\NpcDrop.cs" />
+    <Compile Include="definitions\WorldObjectManager.cs" />
+    <Compile Include="definitions\PacketHandlers.cs" />
+    <Compile Include="player\skills\farming\Patch.cs" />
+    <Compile Include="player\skills\herblore\FillVial.cs" />
+    <Compile Include="player\skills\herblore\Herblore.cs" />
+    <Compile Include="player\skills\herblore\HerbloreData.cs" />
+    <Compile Include="player\skills\herblore\Potion.cs" />
+    <Compile Include="player\skills\magic\Teleport.cs" />
+    <Compile Include="player\skills\mining\Mining.cs" />
+    <Compile Include="player\skills\mining\MiningData.cs" />
+    <Compile Include="player\skills\mining\Rock.cs" />
+    <Compile Include="player\skills\prayer\PrayerData.cs" />
+    <Compile Include="player\skills\runecrafting\AbyssObstacles.cs" />
+    <Compile Include="player\skills\runecrafting\RuneCraftData.cs" />
+    <Compile Include="player\skills\slayer\Slayer.cs" />
+    <Compile Include="player\skills\slayer\SlayerData.cs" />
+    <Compile Include="player\skills\smithing\BarToSmelt.cs" />
+    <Compile Include="player\skills\smithing\Smelting.cs" />
+    <Compile Include="player\skills\smithing\SmithBar.cs" />
+    <Compile Include="player\skills\smithing\Smithing.cs" />
+    <Compile Include="player\skills\smithing\SmithingData.cs" />
+    <Compile Include="player\skills\thieving\Thieving.cs" />
+    <Compile Include="player\skills\thieving\ThievingData.cs" />
+    <Compile Include="player\skills\woodcutting\Tree.cs" />
+    <Compile Include="player\skills\woodcutting\WoodcuttingData.cs" />
+    <Compile Include="definitions\WorldObject.cs" />
+    <Compile Include="events\AreaEvent.cs" />
+    <Compile Include="events\AreaVariables.cs" />
+    <Compile Include="events\CoordinateEvent.cs" />
+    <Compile Include="events\Event.cs" />
+    <Compile Include="events\PoisonEvent.cs" />
+    <Compile Include="minigames\agilityarena\AgilityArena.cs" />
+    <Compile Include="minigames\barrows\BarrowNPCAttacks.cs" />
+    <Compile Include="minigames\barrows\Barrows.cs" />
+    <Compile Include="minigames\duelarena\DuelSession.cs" />
+    <Compile Include="minigames\fightcave\FightCave.cs" />
+    <Compile Include="minigames\fightcave\FightCaveSession.cs" />
+    <Compile Include="minigames\MinigamesHandler.cs" />
+    <Compile Include="model\Animation.cs" />
+    <Compile Include="model\Appearance.cs" />
+    <Compile Include="model\AttackStyle.cs" />
+    <Compile Include="combat\Combat.cs" />
+    <Compile Include="model\ChatMessage.cs" />
+    <Compile Include="model\Entity.cs" />
+    <Compile Include="model\Follow.cs" />
+    <Compile Include="model\ForceMovement.cs" />
+    <Compile Include="model\Graphics.cs" />
+    <Compile Include="model\GroundItem.cs" />
+    <Compile Include="model\Hits.cs" />
+    <Compile Include="model\Item.cs" />
+    <Compile Include="model\LocalEnvironment.cs" />
+    <Compile Include="model\Location.cs" />
+    <Compile Include="model\Sprite.cs" />
+    <Compile Include="net\Connection.cs" />
+    <Compile Include="net\NpcUpdate.cs" />
+    <Compile Include="net\Packet.cs" />
+    <Compile Include="net\PacketBuilder.cs" />
+    <Compile Include="net\Packets.cs" />
+    <Compile Include="net\PlayerUpdate.cs" />
+    <Compile Include="npc\AppearanceUpdateFlags.cs" />
+    <Compile Include="npc\Npc.cs" />
+    <Compile Include="npc\NpcSkills.cs" />
+    <Compile Include="packethandler\ActionButton.cs" />
+    <Compile Include="packethandler\ClientAction.cs" />
+    <Compile Include="packethandler\Command.cs" />
+    <Compile Include="packethandler\Communication.cs" />
+    <Compile Include="packethandler\InterfaceOptions.cs" />
+    <Compile Include="packethandler\ItemInteract.cs" />
+    <Compile Include="packethandler\NPCInteract.cs" />
+    <Compile Include="packethandler\ObjectInteract.cs" />
+    <Compile Include="packethandler\PacketHandler.cs" />
+    <Compile Include="packethandler\PlayerInteract.cs" />
+    <Compile Include="packethandler\Unused.cs" />
+    <Compile Include="packethandler\Walk.cs" />
+    <Compile Include="player\Bank.cs" />
+    <Compile Include="player\DwarfCannon.cs" />
+    <Compile Include="player\Equipment.cs" />
+    <Compile Include="player\Friends.cs" />
+    <Compile Include="player\Inventory.cs" />
+    <Compile Include="player\LoginDetails.cs" />
+    <Compile Include="player\Player.cs" />
+    <Compile Include="net\Cryption.cs" />
+    <Compile Include="LoginHandler.cs" />
+    <Compile Include="player\AppearanceUpdateFlags.cs" />
+    <Compile Include="player\Prayers.cs" />
+    <Compile Include="player\Skills.cs" />
+    <Compile Include="player\skills\fletching\Fletching.cs" />
+    <Compile Include="player\skills\fletching\MakeAmmo.cs" />
+    <Compile Include="player\skills\fletching\MakeBows.cs" />
+    <Compile Include="player\skills\fletching\MakeXbow.cs" />
+    <Compile Include="player\skills\SkillHandler.cs" />
+    <Compile Include="player\skills\farming\Farming.cs" />
+    <Compile Include="player\skills\prayer\Prayer.cs" />
+    <Compile Include="player\skills\runecrafting\RuneCraft.cs" />
+    <Compile Include="player\skills\SkillItem.cs" />
+    <Compile Include="player\skills\slayer\SlayerTask.cs" />
+    <Compile Include="player\skills\woodcutting\Woodcutting.cs" />
+    <Compile Include="player\SpecialAttack.cs" />
+    <Compile Include="player\TradeSession.cs" />
+    <Compile Include="player\WalkingQueue.cs" />
+    <Compile Include="Server.cs" />
+    <Compile Include="util\Misc.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
